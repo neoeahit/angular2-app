@@ -7,11 +7,22 @@ import {HomeComponent}   from './home';
 @Component({
   selector: 'my-app',
   template: `
-    <h1>Component Router</h1>
-    <nav>
-      <a [routerLink]="['Home']">Home</a>
-    </nav>
     <router-outlet></router-outlet>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">Stade Hub</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="reviews">Reviews</a></li>
+            <li ng-show="currentUser"><a ui-sref="activity">Activity</a></li>
+            <li><a ui-sref="about">About</a></li>
+        </ul>
+        <ul ng-if="currentUser" class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="/auth/logout/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser}} </a>
+            </li>
+        </ul>
+    </nav>
   `,
   directives: [ROUTER_DIRECTIVES]
 })
