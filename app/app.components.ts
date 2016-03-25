@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {HomeComponent}   from './home';
+import {NoteApp} from './noteapp';
 
 
 @Component({
@@ -10,23 +11,19 @@ import {HomeComponent}   from './home';
     <router-outlet></router-outlet>
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="home">Stade Hub</a>
+            <a class="navbar-brand" ui-sref="home">Run-Eat-Travel</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a ui-sref="reviews">Reviews</a></li>
             <li ng-show="currentUser"><a ui-sref="activity">Activity</a></li>
             <li><a ui-sref="about">About</a></li>
         </ul>
-        <ul ng-if="currentUser" class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="/auth/logout/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser}} </a>
-            </li>
-        </ul>
     </nav>
   `,
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  {path:'/home',        name: 'Home',       component: HomeComponent}
+  {path:'/home', name: 'Home', component: HomeComponent},
+  {path:'/addNote',  name: 'AddNote',  component: NoteApp}
 ])
 export class AppComponent { }
