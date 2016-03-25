@@ -1,4 +1,3 @@
-//our root app component
 import {Component} from 'angular2/core'
 import {ContenteditableModel} from './contenteditable-model'
 import {RETService} from './services/RETService'
@@ -8,8 +7,8 @@ import {RETService} from './services/RETService'
   providers: [],
   directives: [ContenteditableModel],
   template: `
+  <button style="z-index:100" (click)="postBlogData()">Submit</button>
     <div placeholder="Start Typing..." contenteditable="true" [(contenteditableModel)]="text"></div>
-    <button (click)="postBlogData()">Submit</button>
   `
 })
 export class NoteApp {
@@ -21,12 +20,9 @@ export class NoteApp {
 
   postBlogData(){
     this.retService.postBlogData(this.text).subscribe(
-      // the first argument is a function which runs on success
       data => { console.log("success")},
-      // the second argument is a function which runs on error
       err => console.error(err),
-      // the third argument is a function which runs on completion
-      () => console.log('done loading foods')
+      () => console.log('done posting data')
     );
   }
   }

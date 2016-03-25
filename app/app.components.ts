@@ -3,6 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {HomeComponent}   from './home';
 import {NoteApp} from './noteapp';
+import {ViewBlog} from './viewBlog';
 
 
 @Component({
@@ -24,6 +25,7 @@ import {NoteApp} from './noteapp';
 })
 @RouteConfig([
   {path:'/home', name: 'Home', component: HomeComponent},
-  {path:'/addNote',  name: 'AddNote',  component: NoteApp}
+  {path:'/addNote',  name: 'AddNote',  component: NoteApp},
+  {path:'blog/:id',  name: 'Blog',     component: ViewBlog}
 ])
 export class AppComponent { }

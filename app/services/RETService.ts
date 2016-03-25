@@ -11,4 +11,8 @@ export class RETService {
     return this.http.post('/api/add/review', JSON.stringify({review: data})).map((res:Response) => res.json());
   }
 
+  getBlogEntry(id){
+    return this.http.post('/api/obtain/review', JSON.stringify({id: id})).map((res:Response) => res.json());
+  }
+
 }
