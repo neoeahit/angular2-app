@@ -5,7 +5,9 @@ import {RouteParams} from 'angular2/router';
 
 @Component({
   template: `
-    <div>{{blogData.story}}</div>
+  <div class="container">
+  <span [innerHtml]="blogData.story"></span>
+  </div>
   `
 })
 export class ViewBlog {
@@ -23,7 +25,7 @@ export class ViewBlog {
   getBlogData(){
     this.retService.getBlogEntry(this._id).subscribe(
       data => {
-      console.log(data)
+      console.log(data.story)
       this.blogData = data},
       err => console.error(err),
       () => console.log(this._id)
