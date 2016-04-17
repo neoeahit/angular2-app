@@ -24,7 +24,7 @@ import {ViewBlog} from './viewBlog';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  {path:'/home', name: 'Home', component: HomeComponent},
+  {path:'/home', name: 'Home', component: HomeComponent, useAsDefault: true},
   {path:'/addNote',  name: 'AddNote',  component: NoteApp},
   {path:'blog/:id',  name: 'Blog',     component: ViewBlog}
 ])
